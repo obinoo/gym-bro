@@ -1,0 +1,47 @@
+nav {
+    background-color: #1a1a1a;
+    height: 60px;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    width: 100%; 
+    
+}
+
+nav .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    max-width: 1200px; 
+    margin: 0 auto; 
+    padding: 0 20px;
+}
+
+nav img {
+    height: 40px;
+    width: auto;
+}
+
+nav a {
+    text-decoration: none;
+    color: #fff;
+    transition: 0.3s ease-in-out;
+}
+
+nav a:hover {
+    color: #ffc20e;
+}
+
+nav button {
+    background-color: var(--col1);
+    border: none;
+    outline: none;
+    cursor: pointer;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    color: white;
+    transition: 0.3s ease-in-out;
+    padding: 10px;
+}

@@ -1,0 +1,68 @@
+.authform {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 400px;
+    background: black;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    /* height: 70%; */
+  }
+  
+  .authform .left {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .authform .left img {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  .authform .right {
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    /* overflow: scroll; */
+  }
+  
+  .authform .right form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  button {
+    padding: 10px 15px;
+    background: #ff9800;
+    border: none;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 1rem;
+  }
+  
+  button:hover {
+    background: #e68900;
+  }
+  
+  .authform p button{
+    position: relative;
+    bottom: 0;
+    left: auto;
+  }
+
+  .authform .close{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    border-radius: 50%;
+  }
