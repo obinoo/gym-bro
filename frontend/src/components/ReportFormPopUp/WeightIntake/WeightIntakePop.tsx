@@ -15,7 +15,7 @@ interface WeightIntakePopupProps {
   setShowWeightIntakePop: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-const StepsIntakePop: React.FC<WeightIntakePopupProps> = ({
+const WeightIntakePop: React.FC<WeightIntakePopupProps> = ({
   setShowWeightIntakePop,
 }) => {
   const [date, setDate] = useState<Date | null>(new Date());
@@ -228,5 +228,5 @@ const StepsIntakePop: React.FC<WeightIntakePopupProps> = ({
 };
 
 
-export default StepsIntakePop;
+export default WeightIntakePop;
           

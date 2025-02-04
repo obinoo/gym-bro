@@ -68,6 +68,17 @@ export const addCalories = async (req: Request, res: Response) => {
             return;
         }
 
+//         // Calculate total calorie intake so far
+// const totalCalories = user.calorieIntake.reduce((sum, entry) => sum + entry.calorieIntake, 0);
+
+// // Get goal calorie intake 
+// const goalCalorieIntake = user.goalCalorieIntake;
+
+// // Ensure new calorie intake does not exceed goal
+// if (totalCalories + calorieIntake > goalCalorieIntake) {
+//     return res.status(400).json({ message: "Calorie intake exceeds daily goal!" });
+// }
+
         // Add calorie intake entry
         user.calorieIntake.push({
             item,

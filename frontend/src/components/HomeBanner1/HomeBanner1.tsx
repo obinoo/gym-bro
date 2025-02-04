@@ -28,6 +28,11 @@ const HomeBanner1 = () => {
   ]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+//   const [isLoggedIn, setIsLoggedIn] = useState(() => {
+//     const token = localStorage.getItem("token");
+//     return token && !isTokenExpired(token);
+// });
+
   const navigate = useNavigate();
 
   const fetchData = async () => {
@@ -35,20 +40,14 @@ const HomeBanner1 = () => {
       const token = localStorage.getItem("accessToken");
       console.log(token);
 
-      if (!token) {
+      if (!token || isTokenExpired(token)) {
         // setError("Please log in.");
+        toast.error("Session expired. Please log in again.");
+        localStorage.removeItem("accessToken"); // Clear token from localStorage
         navigate("/"); // Redirect to login if no token
         return;
       }
 
-      // Check if the token is expired
-      if (isTokenExpired(token)) {
-        // setError("Session expired. Please log in again.");
-        toast.error("Session expired. Please log in again.");
-        localStorage.removeItem("accessToken"); // Clear token from localStorage
-        navigate("/"); // Redirect to login page
-        return;
-      }
 
       setLoading(true);
       const response = await fetch("http://localhost:8080/report/getreport", {
@@ -59,7 +58,7 @@ const HomeBanner1 = () => {
         },
       });
 
-     // Improved error handling
+     
     if (!response.ok) {
       if (response.status === 401) {
         toast.error("Session expired. Please log in again");
@@ -78,6 +77,7 @@ const HomeBanner1 = () => {
 
       const result = await response.json();
       console.log(result);
+      
       if (result.tempResponse && Array.isArray(result.tempResponse)) {
         const mappedData = result.tempResponse.map((item: any) => ({
           name: item.name.replace(" Intake", ""),
@@ -102,7 +102,9 @@ const HomeBanner1 = () => {
   };
 
   useEffect(() => {
-    fetchData();
+   
+   fetchData()
+   
   }, []);
 
   return (
